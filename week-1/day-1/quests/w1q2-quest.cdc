@@ -1,4 +1,7 @@
 // WEEK 1 DAY 1 QUEST 2 (OUTPUT ON LINE NO: 94)
+// Question: Create a resource that prints Picture's but only once for each unique 5x5 Canvas.
+
+
 
 pub struct Canvas {
   pub let width: UInt;

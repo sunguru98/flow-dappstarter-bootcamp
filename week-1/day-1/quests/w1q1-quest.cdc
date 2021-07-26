@@ -1,4 +1,5 @@
 // WEEK 1 DAY 1 QUEST 1 (OUTPUT ON LINE NO: 94)
+// QN: Write a function that displays a canvas in a frame.
 
 pub struct Canvas {
   pub let width: UInt;
