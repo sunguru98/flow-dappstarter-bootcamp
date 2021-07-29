@@ -126,6 +126,8 @@ pub fun main() {
     "*****"
   ]))
 
+  log(canvasS.pixelString);
+
   let canvasU = Canvas(_width: 5, _height: 5, _pixelString: serializeStringArray(stringArray: [
     "*   *",
     "*   *",
