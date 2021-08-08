@@ -42,8 +42,8 @@ One last detail, there are many wallet providers, and integrating with them all 
 With FCL, you get an entire JavaScript SDK with an authentication layer on top. Meaning, all you have to do to start interacting with a user is call two methods.
 
 ```javascript
-fcl.authenticate()
-fcl.currentUser().subscribe()
+fcl.authenticate();
+fcl.currentUser().subscribe();
 ```
 
 You also get all of the familiar `transaction` and `script` functionality in a nice, abstracted form.
@@ -54,8 +54,8 @@ fcl.send([
     pub fun main(): String {
       return "Hi, FastFloward!"
     }
-  `
-])
+  `,
+]);
 ```
 
 This is just to give you a glimpse of FCL, we'll explore it further, using our real-world DApp examples. To learn more about FCL, right from the horse's mouth, have a look at [Inside Flow: The Power of Simplicity with FCL][1], it's a recent blog post from the Flow team, where they build a strong case for FCL.
@@ -108,7 +108,7 @@ The Artist client app uses `Flow.jsx` as a single point of contact with the Flow
     fetchCollection,
     createCollection,
     destroyCollection,
-    printPicture
+    printPicture,
   }}
 >
   {props.children}
@@ -131,7 +131,7 @@ We can create and fund an account on testnet using the [flowfaucet][3]. It's a f
 flow keys generate --sig-algo "ECDSA_secp256k1"
 ```
 
-Don't forget to select the appropriate *Signature Algorithm* and stay human. Click **Create Account**. After a few moments we'll get a new account address with 1,000 FLOW tokens inside, sweet!
+Don't forget to select the appropriate _Signature Algorithm_ and stay human. Click **Create Account**. After a few moments we'll get a new account address with 1,000 FLOW tokens inside, sweet!
 
 Now, let's create a new `flow.json`. Make sure that you're in the `/day4/Artist/src/cadence/` folder.
 
@@ -181,7 +181,7 @@ REACT_APP_ARTIST_CONTRACT_HOST_ACCOUNT=0x01
 
 ## Deploy LocalArtist
 
-You might have noticed that we're using `LocalArtist` as a different name for our contract. Since a storage path must be unique, we want to avoid naming conflics with [artist.flowdeveloper.com][2] contract storage. Another change is that we're no longer using ' ' and '*' for on/off pixels, from now on we'll use '1' for an on pixel, and '0' for an off pixel. You might find other changes in the contract if you're curious.
+You might have noticed that we're using `LocalArtist` as a different name for our contract. Since a storage path must be unique, we want to avoid naming conflics with [artist.flowdeveloper.com][2] contract storage. Another change is that we're no longer using ' ' and '\*' for on/off pixels, from now on we'll use '1' for an on pixel, and '0' for an off pixel. You might find other changes in the contract if you're curious.
 
 Right, on to deploying the `LocalArtist` contract to testnet.
 
@@ -249,15 +249,13 @@ async function sendTransaction() {
     .send([
       fcl.transaction`
         // Your Cadence code...
-        import LocalArtist from ${process.env.REACT_APP_ARTIST_CONTRACT_HOST_ACCOUNT}
+        import LocalArtist from ${process.env.REACT_APP_ARTIST_CONTRACT_HOST}
       `,
-      fcl.args([
-        fcl.arg("Hello, FastFloward!", FlowTypes.String)
-      ]),
+      fcl.args([fcl.arg('Hello, FastFloward!', FlowTypes.String)]),
       fcl.payer(fcl.authz),
       fcl.proposer(fcl.authz),
       fcl.authorizations([fcl.authz]),
-      fcl.limit(9999)
+      fcl.limit(9999),
     ])
     .then(fcl.decode);
 
@@ -265,7 +263,7 @@ async function sendTransaction() {
 }
 ```
 
-The `fcl.authz` value is just shorthand for the current user. Before returning, we wait until the transaction is *sealed*.
+The `fcl.authz` value is just shorthand for the current user. Before returning, we wait until the transaction is _sealed_.
 
 To execute a script is very similar.
 
@@ -278,11 +276,9 @@ async function sendTransaction() {
     .send([
       fcl.script`
         // Your Cadence code...
-        import LocalArtist from ${process.env.REACT_APP_ARTIST_CONTRACT_HOST_ACCOUNT}
+        import LocalArtist from ${process.env.REACT_APP_ARTIST_CONTRACT_HOST}
       `,
-      fcl.args([
-        fcl.arg("Hello, FastFloward!", FlowTypes.String)
-      ]),
+      fcl.args([fcl.arg('Hello, FastFloward!', FlowTypes.String)]),
     ])
     .then(fcl.decode);
 
