@@ -3,3 +3,7 @@
 fast-floward-1
 **/node_modules
 **/.env
+
+**/dapp-config.json
+**/dapp-scripts.js
+**/dapp-transactions.js
