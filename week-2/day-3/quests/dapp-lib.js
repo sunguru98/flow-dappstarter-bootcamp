@@ -49,7 +49,7 @@ module.exports = class DappLib {
       'kibble_mint_tokens',
       {
         recipient: { value: data.recipient, type: t.Address },
-        amount: { value: data.amount, type: t.UFix64 },
+        amount: { value: parseInt(data.amount), type: t.UFix64 },
       }
     );
     return {
@@ -212,7 +212,7 @@ module.exports = class DappLib {
       'kittyitems_transfer_kitty_item',
       {
         recipient: { value: data.recipient, type: t.Address },
-        withdrawID: { value: data.withdrawID, type: t.UInt64 },
+        withdrawID: { value: parseInt(data.withdrawID), type: t.UInt64 },
       }
     );
 
@@ -241,8 +241,7 @@ module.exports = class DappLib {
       },
       'kittyitems_read_collection_ids',
       {
-        recipient: { value: data.recipient, type: t.Address },
-        typeID: { value: data.typeID, type: t.UInt64 },
+        address: { value: data.address, type: t.Address },
       }
     );
 

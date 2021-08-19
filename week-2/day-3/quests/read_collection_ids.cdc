@@ -1,5 +1,5 @@
-import KittyItems from Project.KittyItems;
-import NonFungibleToken from Flow.NonFungibleToken;
+import NonFungibleToken from Flow.NonFungibleToken
+import KittyItems from Project.KittyItems
 
 // This script returns an array of all the NFT IDs in an account's Kitty Items Collection.
 
