@@ -1,0 +1,61 @@
+{
+  "type": "Optional",
+  "value": {
+    "type": "Resource",
+    "value": {
+      "id": "A.0000000000000003.SomeContract.SomeOtherResource",
+      "fields": [
+        {
+          "name": "uuid",
+          "value": {
+            "type": "UInt64",
+            "value": "8"
+          }
+        },
+        {
+          "name": "values",
+          "value": {
+            "type": "Dictionary",
+            "value": [
+              {
+                "key": {
+                  "type": "UInt",
+                  "value": "0"
+                },
+                "value": {
+                  "type": "Resource",
+                  "value": {
+                    "id": "A.0000000000000003.SomeContract.SomeResource",
+                    "fields": [
+                      {
+                        "name": "uuid",
+                        "value": {
+                          "type": "UInt64",
+                          "value": "9"
+                        }
+                      },
+                      {
+                        "name": "someVal",
+                        "value": {
+                          "type": "UInt",
+                          "value": "10"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "index",
+          "value": {
+            "type": "UInt",
+            "value": "1"
+          }
+        }
+      ]
+    }
+  }
+}
